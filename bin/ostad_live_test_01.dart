@@ -10,13 +10,19 @@ class Song extends Media {
 
   @override
   void play() {
-    print("Playing song by $artist...");
+    if (artist != null) {
+      print("Playing song by $artist...");
+    } else {
+      print("Playing song by unknown artist...");
+    }
   }
 }
 
 void main() {
   Media media = Media();
   media.play();
-  Song song = Song("Arijit Singh");
-  song.play();
+  Song songWithArtist = Song("Adele");
+  songWithArtist.play();
+  Song songWithoutArtist = Song(null);
+  songWithoutArtist.play();
 }
